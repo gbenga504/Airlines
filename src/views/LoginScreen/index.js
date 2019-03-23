@@ -36,7 +36,7 @@ export default class LoginScreen extends React.PureComponent {
     let { email, password, error } = this.state;
 
     return (
-      <React.Fragment>
+      <div className="app-container">
         <HTMLTitleAtom title="Login | Realtime airline data" />
         <div className="row">
           <form className="login__form col s12 m8 offset-m2">
@@ -75,7 +75,7 @@ export default class LoginScreen extends React.PureComponent {
             </LightText>
           </form>
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
