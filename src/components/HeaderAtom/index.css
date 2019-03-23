@@ -1,0 +1,40 @@
+.main-header-container {
+  position: fixed;
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.main-header {
+  height: 64px;
+  background: #fff;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.14);
+  padding: 10px;
+  font-size: 22.1px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.54);
+  display: flex;
+  align-items: center;
+}
+
+.main-header > div {
+  margin-left: 40px;
+}
+
+.main-header__title--name {
+  font-weight: 700;
+}
+
+.main-header__title--slug {
+  font-weight: 300;
+}
+
+.main-header > i {
+  cursor: pointer;
+}
+
+.main-header__off-icon {
+  margin-right: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+}
