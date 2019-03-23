@@ -9,6 +9,10 @@
   background-color: #0067f5;
 }
 
+.app-button:focus {
+  background-color: #0067f5;
+}
+
 .app-button__text {
   color: #fff;
   text-transform: capitalize;

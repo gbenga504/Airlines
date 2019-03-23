@@ -21,5 +21,6 @@ export default ButtonAtom;
 
 ButtonAtom.propTypes = {
   title: PropTypes.string.isRequired,
-  textClassName: PropTypes.string
+  textClassName: PropTypes.string,
+  onClick: PropTypes.func.isRequired
 };

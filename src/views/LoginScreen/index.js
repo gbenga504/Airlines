@@ -4,17 +4,37 @@ import "./index.css";
 import HTMLTitleAtom from "../../components/HTMLTitleAtom";
 import { BoldText, LightText } from "../../components/TextAtom";
 import ButtonAtom from "../../components/ButtonAtom";
+import TextFieldAtom from "../../components/TextFieldAtom";
 
 export default class LoginScreen extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      error: ""
     };
   }
 
+  onSubmit = async e => {
+    e.preventDefault();
+    let { email, password } = this.state;
+    if (email === "demo" && password === "demo") {
+      await this.setState({
+        error: ""
+      });
+      window.localStorage.setItem("user", email);
+      this.props.dispatch("/");
+    } else {
+      this.setState({
+        error: "One or more details entered is wrong, please check again."
+      });
+    }
+  };
+
   render() {
+    let { email, password, error } = this.state;
+
     return (
       <React.Fragment>
         <HTMLTitleAtom title="Login | Realtime airline data" />
@@ -26,25 +46,29 @@ export default class LoginScreen extends React.PureComponent {
             <LightText className="col s12 login__please-track login__text">
               Please login
             </LightText>
-            <div className="row">
-              <div className="input-field col s12 offset-m2 m8">
-                <input id="email" type="email" className="validate" />
-                <label className="login__form-label" htmlFor="email">
-                  Email
-                </label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12 offset-m2 m8">
-                <input id="password" type="password" className="validate" />
-                <label className="login__form-label" htmlFor="password">
-                  Password
-                </label>
-              </div>
-            </div>
+            <TextFieldAtom
+              id="email"
+              value={email}
+              onChange={e => this.setState({ email: e.target.value })}
+              type="email"
+              label="Email"
+              labelClassName="login__form-label"
+            />
+            <TextFieldAtom
+              id="password"
+              value={password}
+              onChange={e => this.setState({ password: e.target.value })}
+              type="password"
+              label="Password"
+              labelClassName="login__form-label"
+              validate
+            />
             <div className="col s12 offset-m2 m8 login__form-submit-btn">
-              <ButtonAtom title="Log In" />
+              <ButtonAtom title="Log In" onClick={this.onSubmit} />
             </div>
+            <LightText className="col s12 login__text login__form-error">
+              {error}
+            </LightText>
             <LightText className="col s12 login__text login__form-no-account">
               Don't have an accout?{" "}
               <LightText className="login__form-signup">Sign Up</LightText>

@@ -29,6 +29,12 @@
   margin: 15px 0px;
 }
 
+.login__form-error {
+  font-size: 0.9rem;
+  margin: 10px 0px;
+  color: #f44336;
+}
+
 .login__form-signup {
   color: #0067f5;
 }
