@@ -14,7 +14,36 @@ code {
 }
 
 .app-container {
-  width: 100%;
+  width: 80%;
+  margin: 0% 10%;
   height: 100%;
   background: #fff;
+}
+
+span,
+label {
+  color: #576f7f;
+}
+
+.input-field input:focus + label {
+  color: #0067f5 !important;
+}
+
+.input-field input:focus {
+  border-bottom: 1px solid #0067f5 !important;
+  box-shadow: 0 1px 0 0 #0067f5 !important;
+}
+
+.input-field input.valid {
+  border-bottom: 1px solid #0067f5 !important;
+  box-shadow: 0 1px 0 0 #0067f5 !important;
+}
+
+.input-field input.invalid {
+  border-bottom: 1px solid #f44336 !important;
+  box-shadow: 0 1px 0 0 #0067f5 !important;
+}
+
+.input-field .prefix.active {
+  color: #0067f5 !important;
 }

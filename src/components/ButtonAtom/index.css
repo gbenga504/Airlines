@@ -1,0 +1,15 @@
+.app-button {
+  background-color: #0067f5;
+  width: 100%;
+  height: 46px;
+  padding: 0;
+}
+
+.app-button:hover {
+  background-color: #0067f5;
+}
+
+.app-button__text {
+  color: #fff;
+  text-transform: capitalize;
+}

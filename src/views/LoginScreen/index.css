@@ -1,0 +1,34 @@
+.login__form {
+  margin: 30px 0px;
+}
+
+.login__text {
+  text-align: center;
+}
+
+.login__on-track {
+  font-size: 1.4rem;
+}
+
+.login__please-track {
+  font-size: 2rem;
+  margin: 20px 0px;
+}
+
+.login__form-label {
+  font-family: "Lato";
+  font-weight: 300;
+}
+
+.login__form-submit-btn {
+  padding: 0px !important;
+}
+
+.login__form-no-account {
+  font-size: 0.9rem;
+  margin: 15px 0px;
+}
+
+.login__form-signup {
+  color: #0067f5;
+}
