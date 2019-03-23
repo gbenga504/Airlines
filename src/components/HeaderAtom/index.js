@@ -9,7 +9,7 @@ const HeaderAtom = () => (
   <div className={`row main-header-container`}>
     <div className={`main-header row`}>
       <div className="col s6">
-        <span className="main-header__title--name">Airline</span>
+        <span className="main-header__title--name">AirLine</span>
         <span className="main-header__title--slug">Reports</span>
       </div>
       <div className="col s5 main-header__off-icon">

@@ -1,0 +1,16 @@
+.grid-container__title {
+  font-size: 12px;
+  margin: 20px 0px;
+  margin-left: 1.5%;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.grid {
+  padding: 0px 15px;
+}
+
+@media (max-width: 700px) {
+  .list-container__title {
+    margin-left: 0%;
+  }
+}

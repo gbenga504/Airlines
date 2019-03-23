@@ -1,0 +1,52 @@
+.cell-item {
+  border-top: 1px solid #000;
+  padding: 12px 0px;
+  padding-bottom: 142px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0px 1.5% !important;
+  padding-bottom: 30px !important;
+  width: 30% !important;
+  cursor: pointer;
+}
+
+.cell-item:hover {
+  background: #eee;
+}
+
+.cell-item__title {
+  margin-bottom: 4px;
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 700;
+}
+
+.cell-item__content {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+@media (min-width: 700px) and (max-width: 1275px) {
+  .cell-item {
+    padding-bottom: 163px;
+  }
+}
+
+@media (min-width: 859px) and (max-width: 1100px) {
+  .cell-item {
+    padding-bottom: 142.5px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .cell-item {
+    width: 46.5%;
+  }
+}
+
+@media (max-width: 700px) {
+  .cell-item {
+    width: 100%;
+  }
+}
