@@ -16,11 +16,13 @@ class DashboardScreen extends React.PureComponent {
   };
 
   componentDidMount() {
-    this.props.fetchCities();
+    //Run the initial fetch as a timer. This caters for a redirect in case the user is not authenticated
+    this.initialTimer = setTimeout(() => this.props.fetchCities(), 500);
     this.refetchCities();
   }
 
   refetchCities = () => {
+    //Fetch new updates after every 3 minutes
     this.timer = setTimeout(() => {
       this.props.fetchCities(true);
       this.refetchCities();
@@ -36,6 +38,7 @@ class DashboardScreen extends React.PureComponent {
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+    clearTimeout(this.initialTimer);
   }
 
   hideModal = () => {
