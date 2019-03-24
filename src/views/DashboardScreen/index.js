@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router";
 
 import "./index.css";
 import HTMLTitleAtom from "../../components/HTMLTitleAtom";
@@ -36,11 +37,16 @@ class DashboardScreen extends React.PureComponent {
       : this.props.fetchDepartingFlights(currentCity[0], value);
   };
 
+  logout = () => {
+    localStorage.removeItem("user");
+    this.props.history.push("/login");
+  };
+
   render() {
-    return (
+    return localStorage.getItem("user") ? (
       <React.Fragment>
         <HTMLTitleAtom title="Dashboard | Realtime airline data" />
-        <HeaderAtom />
+        <HeaderAtom onLogout={this.logout} />
         <div className="col s12 list-container">
           <GridAtom
             cities={this.props.cities.data.states}
@@ -56,6 +62,8 @@ class DashboardScreen extends React.PureComponent {
           flights={this.props.flights}
         />
       </React.Fragment>
+    ) : (
+      <Redirect to="/login" />
     );
   }
 }

@@ -24,7 +24,7 @@ export default class LoginScreen extends React.PureComponent {
         error: ""
       });
       window.localStorage.setItem("user", email);
-      this.props.dispatch("/");
+      this.props.history.push("/");
     } else {
       this.setState({
         error: "One or more details entered is wrong, please check again."
