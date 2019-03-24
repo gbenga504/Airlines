@@ -9,7 +9,7 @@ import Cell from "./Cell";
  */
 export default class Grid extends React.PureComponent {
   static propTypes = {
-    cities: PropTypes.array.isRequired,
+    cities: PropTypes.array,
     onClick: PropTypes.func.isRequired
   };
 

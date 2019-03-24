@@ -17,6 +17,18 @@ class DashboardScreen extends React.PureComponent {
 
   componentDidMount() {
     this.props.fetchCities();
+    this.refetchCities();
+  }
+
+  refetchCities = () => {
+    this.timer = setTimeout(() => {
+      this.props.fetchCities(true);
+      this.refetchCities();
+    }, 180000);
+  };
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
   }
 
   hideModal = () => {
@@ -70,8 +82,8 @@ class DashboardScreen extends React.PureComponent {
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchCities: () => {
-      return dispatch(fetchCities());
+    fetchCities: backgroundUpdate => {
+      return dispatch(fetchCities(backgroundUpdate));
     },
     fetchArrivingFlights: (airport, minutes) => {
       return dispatch(fetchFlights(airport, true, minutes));

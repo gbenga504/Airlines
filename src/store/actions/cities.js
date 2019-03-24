@@ -16,8 +16,8 @@ export const fetchCitiesError = error => ({
   error
 });
 
-export const fetchCities = () => dispatch => {
-  dispatch(fetchCitiesPending());
+export const fetchCities = backgroundUpdate => dispatch => {
+  !backgroundUpdate && dispatch(fetchCitiesPending());
 
   API({ endpoint: api.cities })
     .then(data => {
