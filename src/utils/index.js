@@ -28,7 +28,7 @@ export const getDate = timestamp => {
 };
 
 /**
- * returns the time
+ * returns the full date with seconds, minute and hours
  *
  * @return {string}
  * @param {string} date

@@ -75,6 +75,34 @@ export class ModalAtom extends React.PureComponent {
     </div>
   );
 
+  renderData = () => {
+    let {
+        flights: { data }
+      } = this.props,
+      { startPagination, endPagination } = this.state;
+
+    return (
+      <table className="striped centered responsive-table app-modal__table">
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>Icao24</th>
+            <th>Last Seen</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.slice(startPagination, endPagination).map((flight, i) => (
+            <tr key={i}>
+              <td>{i + startPagination + 1}</td>
+              <td>{flight.icao24}</td>
+              <td>{getDate(flight.lastSeen)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
+
   renderTable = () => {
     let {
         flights: { loading, error, data }
@@ -87,24 +115,7 @@ export class ModalAtom extends React.PureComponent {
           <LightText className="app-modal__table-title">
             Showing all results for {this.state.tableTitle}
           </LightText>
-          <table className="striped centered responsive-table app-modal__table">
-            <thead>
-              <tr>
-                <th>S/N</th>
-                <th>Icao24</th>
-                <th>Last Seen</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.slice(startPagination, endPagination).map((flight, i) => (
-                <tr key={i}>
-                  <td>{i + startPagination + 1}</td>
-                  <td>{flight.icao24}</td>
-                  <td>{getDate(flight.lastSeen)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          {this.renderData()}
           <div className="row app-modal__table-nav-container ">
             {startPagination - 3 >= 0 && (
               <div

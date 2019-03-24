@@ -27,6 +27,13 @@ class DashboardScreen extends React.PureComponent {
     }, 180000);
   };
 
+  loadFlights = (value, type) => {
+    let { currentCity } = this.state;
+    type === "arriving"
+      ? this.props.fetchArrivingFlights(currentCity[0], value)
+      : this.props.fetchDepartingFlights(currentCity[0], value);
+  };
+
   componentWillUnmount() {
     clearTimeout(this.timer);
   }
@@ -35,18 +42,11 @@ class DashboardScreen extends React.PureComponent {
     this.setState({ isModalVisible: false, currentCity: [] });
   };
 
-  setCurrentCity = currentCity => {
+  openModal = currentCity => {
     this.setState({
       currentCity,
       isModalVisible: true
     });
-  };
-
-  loadFlights = (value, type) => {
-    let { currentCity } = this.state;
-    type === "arriving"
-      ? this.props.fetchArrivingFlights(currentCity[0], value)
-      : this.props.fetchDepartingFlights(currentCity[0], value);
   };
 
   logout = () => {
@@ -62,7 +62,7 @@ class DashboardScreen extends React.PureComponent {
         <div className="col s12 list-container">
           <GridAtom
             cities={this.props.cities.data.states}
-            onClick={this.setCurrentCity}
+            onClick={this.openModal}
           />
         </div>
         <ModalAtom

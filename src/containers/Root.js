@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import SpinnerAtom from "../components/SpinnerAtom";
 
 /**
- * This is a top level component which wraps and renders the Notification and the Spinner component
+ * This is a top level component which wraps and renders the Spinner component
  * around the top level parent container view
  */
 class Root extends React.PureComponent {
