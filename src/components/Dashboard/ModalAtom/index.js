@@ -62,7 +62,7 @@ export class ModalAtom extends React.PureComponent {
   };
 
   renderDropDown = (title, type) => (
-    <div className="col s6" style={{ marginTop: 10 }}>
+    <div className="col s12 m6" style={{ marginTop: 10 }}>
       <BoldText className="app-modal__dropdown--label">{title}</BoldText>
       <select
         className="app-modal__dropdown"

@@ -9,7 +9,7 @@ import "./index.css";
 const Cell = props => (
   <div className="col s4 cell-item" onClick={props.onClick}>
     <div className="row">
-      <span className="cell-item__title">{`${props.id}`}</span>
+      <span className="cell-item__title">Icao24: {`${props.id}`}</span>
     </div>
     <div className="row cell-item__content">Country: {props.country}</div>
     <div className="row cell-item__content">Longitude: {props.longitude}</div>
