@@ -33,7 +33,7 @@ export default class Grid extends React.PureComponent {
                   country={city[2]}
                   longitude={city[5]}
                   latitude={city[6]}
-                  velocity={city[9]}
+                  last_contact={city[4]}
                 />
               ))}
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { getFullDate } from "../../../../utils";
 import "./index.css";
 
 /**
@@ -14,7 +15,9 @@ const Cell = props => (
     <div className="row cell-item__content">Country: {props.country}</div>
     <div className="row cell-item__content">Longitude: {props.longitude}</div>
     <div className="row cell-item__content">Latitude: {props.latitude}</div>
-    <div className="row cell-item__content">Velocity: {props.velocity}m/s</div>
+    <div className="row cell-item__content">
+      Last Contact: {getFullDate(props.last_contact)}
+    </div>
   </div>
 );
 
@@ -23,7 +26,7 @@ Cell.propTypes = {
   country: PropTypes.string,
   longitude: PropTypes.number,
   latitude: PropTypes.number,
-  velocity: PropTypes.number,
+  last_contact: PropTypes.number,
   onClick: PropTypes.func.isRequired
 };
 
