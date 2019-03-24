@@ -29,6 +29,20 @@ code {
   background: #fff;
 }
 
+@media (max-width: 400px) {
+  .app-container {
+    width: 93%;
+    margin: 0% 3%;
+  }
+}
+
+@media (max-width: 970px) and (min-width: 401px) {
+  .app-container {
+    width: 100%;
+    margin: 0%;
+  }
+}
+
 span,
 label {
   color: #576f7f;
