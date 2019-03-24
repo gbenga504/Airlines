@@ -1,0 +1,68 @@
+.app-modal__content {
+  padding: 20px;
+  padding-top: 10px;
+}
+
+.app-modal__table-title {
+  margin: 10px;
+}
+
+.app-modal__dropdown--label {
+  color: #333;
+}
+
+.app-modal__dropdown {
+  display: block !important;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.app-modal__table {
+  padding: 40px;
+}
+
+.app-loading-text {
+  text-align: center;
+  margin-left: 40%;
+}
+
+.app-error-text {
+  color: #f44336;
+  margin-left: 40%;
+}
+
+.app-modal__table thead {
+  margin-top: 40px;
+}
+
+.app-modal__table-nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.app-modal__table-nav-btn {
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  display: flex;
+  border: 1px solid #eee;
+  cursor: pointer;
+  border-radius: 3px;
+  justify-content: center;
+}
+
+.app-modal__table-nav-btn > i {
+  font-size: 25px;
+}
+
+.app-modal__close-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.app-modal__close-btn {
+  width: 150px;
+}

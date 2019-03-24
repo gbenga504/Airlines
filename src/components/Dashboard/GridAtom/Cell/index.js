@@ -7,9 +7,9 @@ import "./index.css";
  * This is the default Cell component
  */
 const Cell = props => (
-  <div className="col s4 cell-item">
+  <div className="col s4 cell-item" onClick={props.onClick}>
     <div className="row">
-      <span className="cell-item__title">{`#0${props.id}`}</span>
+      <span className="cell-item__title">{`${props.id}`}</span>
     </div>
     <div className="row cell-item__content">Country: {props.country}</div>
     <div className="row cell-item__content">Longitude: {props.longitude}</div>
@@ -19,11 +19,12 @@ const Cell = props => (
 );
 
 Cell.propTypes = {
-  id: PropTypes.number.isRequired,
-  country: PropTypes.string.isRequired,
-  longitude: PropTypes.string.isRequired,
-  latitude: PropTypes.string.isRequired,
-  velocity: PropTypes.string.isRequired
+  id: PropTypes.string,
+  country: PropTypes.string,
+  longitude: PropTypes.number,
+  latitude: PropTypes.number,
+  velocity: PropTypes.number,
+  onClick: PropTypes.func.isRequired
 };
 
 export default Cell;

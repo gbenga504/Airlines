@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./index.css";
 import Cell from "./Cell";
@@ -7,6 +8,11 @@ import Cell from "./Cell";
  * This is the Grid view of the application
  */
 export default class Grid extends React.PureComponent {
+  static propTypes = {
+    cities: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired
+  };
+
   render() {
     let { cities } = this.props;
 
@@ -22,6 +28,7 @@ export default class Grid extends React.PureComponent {
               .map((city, i) => (
                 <Cell
                   key={i}
+                  onClick={() => this.props.onClick(city)}
                   id={city[0]}
                   country={city[2]}
                   longitude={city[5]}

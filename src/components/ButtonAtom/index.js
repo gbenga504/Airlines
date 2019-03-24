@@ -6,10 +6,11 @@ import { MediumText } from "../TextAtom";
 
 const ButtonAtom = props => (
   <button
+  {...props}
     className={`btn waves-effect waves-light app-button ${props.className}`}
     type="submit"
     name="action"
-    {...props}
+
   >
     <MediumText className={`app-button__text ${props.textClassName}`}>
       {props.title}
