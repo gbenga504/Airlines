@@ -41,12 +41,12 @@
 
 @media (max-width: 1100px) {
   .cell-item {
-    width: 46.5%;
+    width: 46.5% !important;
   }
 }
 
 @media (max-width: 700px) {
   .cell-item {
-    width: 100%;
+    width: 100% !important;
   }
 }
