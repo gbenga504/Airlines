@@ -20,14 +20,13 @@ export const fetchFlights = (airport, isArrival, minutes) => dispatch => {
   dispatch(fetchFlightsPending());
   let time = new Date(),
     end = time.getTime() / 1000,
-    begin = end - Number(minutes) * 60;
+    begin = end - Number(minutes) * 60,
+    _airport = isArrival ? airport : airport.toUpperCase();
 
   API({
     endpoint: `${
       isArrival ? api.arrivingFlights : api.departingFlights
-    }?airport=${airport.toUpperCase()}&begin=${parseInt(begin)}&end=${parseInt(
-      end
-    )}`
+    }?airport=${_airport}&begin=${parseInt(begin)}&end=${parseInt(end)}`
   })
     .then(data => {
       dispatch(fetchFlightsFulfilled(data));
