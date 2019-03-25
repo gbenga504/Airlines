@@ -12,21 +12,27 @@ const Cell = props => (
     <div className="row">
       <span className="cell-item__title">Icao24: {`${props.id}`}</span>
     </div>
-    <div className="row cell-item__content">Country: {props.country}</div>
-    <div className="row cell-item__content">Longitude: {props.longitude}</div>
-    <div className="row cell-item__content">Latitude: {props.latitude}</div>
     <div className="row cell-item__content">
-      Last Contact: {getFullDate(props.last_contact)}
+      First Seen: {getFullDate(props.firstSeen)}
+    </div>
+    <div className="row cell-item__content">
+      Last Seen: {getFullDate(props.lastSeen)}
+    </div>
+    <div className="row cell-item__content">
+      Estimated Departure Airport: {props.estDepartureAirport}
+    </div>
+    <div className="row cell-item__content">
+      Estimated Arrival Airport: {props.estArrivalAirport}
     </div>
   </div>
 );
 
 Cell.propTypes = {
   id: PropTypes.string,
-  country: PropTypes.string,
-  longitude: PropTypes.number,
-  latitude: PropTypes.number,
-  last_contact: PropTypes.number,
+  firstSeen: PropTypes.number,
+  estDepartureAirport: PropTypes.string,
+  estArrivalAirport: PropTypes.string,
+  lastSeen: PropTypes.number,
   onClick: PropTypes.func.isRequired
 };
 

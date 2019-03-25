@@ -3,7 +3,7 @@ import * as Types from "../types";
 const initialState = {
   loading: false,
   error: null,
-  data: {}
+  data: []
 };
 
 export const cities = (state = initialState, action) => {
@@ -13,14 +13,14 @@ export const cities = (state = initialState, action) => {
         ...state,
         loading: true,
         error: null,
-        data: state.data || {}
+        data: state.data || []
       };
     case Types.FETCH_CITIES_ERROR:
       return {
         ...state,
         loading: false,
         error: action.error,
-        data: state.data || {}
+        data: state.data || []
       };
     case Types.FETCH_CITIES_FULFILLED:
       return {

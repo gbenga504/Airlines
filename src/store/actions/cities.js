@@ -19,7 +19,14 @@ export const fetchCitiesError = error => ({
 export const fetchCities = backgroundUpdate => dispatch => {
   !backgroundUpdate && dispatch(fetchCitiesPending());
 
-  API({ endpoint: api.cities })
+  //this assumes that we are a day ahead and tries to get the flights based on an hour before
+  //the end time
+  let end = Math.round(new Date().getTime() / 1000) - 24 * 3600,
+    begin = end - 60 * 60;
+
+  API({
+    endpoint: `${api.allFlights}?begin=${begin}&end=${end}`
+  })
     .then(data => {
       dispatch(fetchCitiesFulfilled(data));
     })

@@ -29,11 +29,11 @@ export default class Grid extends React.PureComponent {
                 <Cell
                   key={i}
                   onClick={() => this.props.onClick(city)}
-                  id={city[0]}
-                  country={city[2]}
-                  longitude={city[5]}
-                  latitude={city[6]}
-                  last_contact={city[4]}
+                  id={city.icao24}
+                  firstSeen={city.firstSeen}
+                  estDepartureAirport={city.estDepartureAirport}
+                  estArrivalAirport={city.estArrivalAirport}
+                  lastSeen={city.lastSeen}
                 />
               ))}
         </div>

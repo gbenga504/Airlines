@@ -14,7 +14,7 @@ export class ModalAtom extends React.PureComponent {
     visible: PropTypes.bool.isRequired,
     onHide: PropTypes.func.isRequired,
     title: PropTypes.string,
-    city: PropTypes.array,
+    city: PropTypes.object,
     flights: PropTypes.object
   };
 
@@ -27,10 +27,15 @@ export class ModalAtom extends React.PureComponent {
   };
 
   attemptFlightsLoading = (e, title, type) => {
-    let value = e.target.value;
+    let value = e.target.value,
+      _icao24 =
+        type === "arriving"
+          ? this.props.city.estArrivalAirport
+          : this.props.city.estDepartureAirport;
+
     this.setState(
       {
-        tableTitle: `${title} ${value}minutes`
+        tableTitle: `${title} ${value}minutes for ${_icao24}`
       },
       () => this.props.onLoadFlights(value, type)
     );
@@ -82,7 +87,7 @@ export class ModalAtom extends React.PureComponent {
       { startPagination, endPagination } = this.state;
 
     return (
-      <table className="striped centered responsive-table app-modal__table">
+      <table className="striped centered app-modal__table">
         <thead>
           <tr>
             <th>S/N</th>
@@ -157,7 +162,6 @@ export class ModalAtom extends React.PureComponent {
       >
         <DialogTitle id="simple-dialog-title">{this.props.title}</DialogTitle>
         <div className="col s12 app-modal__content">
-          <LightText>Country: {this.props.city[2]}</LightText>
           <div className="row">
             {this.renderDropDown("Arriving Flights in the last", "arriving")}
             {this.renderDropDown("Departing Flights in the last", "departing")}

@@ -12,7 +12,7 @@ import { fetchCities, fetchFlights } from "../../store/actions";
 class DashboardScreen extends React.PureComponent {
   state = {
     isModalVisible: false,
-    currentCity: []
+    currentCity: {}
   };
 
   componentDidMount() {
@@ -32,8 +32,11 @@ class DashboardScreen extends React.PureComponent {
   loadFlights = (value, type) => {
     let { currentCity } = this.state;
     type === "arriving"
-      ? this.props.fetchArrivingFlights(currentCity[0], value)
-      : this.props.fetchDepartingFlights(currentCity[0], value);
+      ? this.props.fetchArrivingFlights(currentCity.estArrivalAirport, value)
+      : this.props.fetchDepartingFlights(
+          currentCity.estDepartureAirport,
+          value
+        );
   };
 
   componentWillUnmount() {
@@ -42,7 +45,7 @@ class DashboardScreen extends React.PureComponent {
   }
 
   hideModal = () => {
-    this.setState({ isModalVisible: false, currentCity: [] });
+    this.setState({ isModalVisible: false, currentCity: {} });
   };
 
   openModal = currentCity => {
@@ -63,16 +66,13 @@ class DashboardScreen extends React.PureComponent {
         <HTMLTitleAtom title="Dashboard | Realtime airline data" />
         <HeaderAtom onLogout={this.logout} />
         <div className="col s12 list-container">
-          <GridAtom
-            cities={this.props.cities.data.states}
-            onClick={this.openModal}
-          />
+          <GridAtom cities={this.props.cities.data} onClick={this.openModal} />
         </div>
         <ModalAtom
           visible={this.state.isModalVisible}
           onHide={this.hideModal}
           onLoadFlights={this.loadFlights}
-          title={this.state.currentCity[0]}
+          title={this.state.currentCity.icao24}
           city={this.state.currentCity}
           flights={this.props.flights}
         />
